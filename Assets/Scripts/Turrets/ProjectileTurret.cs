@@ -5,6 +5,7 @@ using UnityEngine;
 public class ProjectileTurret : Turret {
     public GameObject projectile;
     public Transform shotOrigin;
+    public Animator animator;
 
     protected override void AquireTarget()
     {

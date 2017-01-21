@@ -57,6 +57,8 @@ public class PlayerController : MonoBehaviour {
         if (Input.GetButton("Fire1") && canPlace)//If lmb is pressed and canPlace is true
         {
             Instantiate(turret, mousePos, transform.rotation);
+            placementMode = !placementMode;
+            GetComponent<SpriteRenderer>().enabled = !GetComponent<SpriteRenderer>().enabled;
         }
     }
 }
