@@ -15,7 +15,7 @@ public class TurretAI : MonoBehaviour {
 
 	void Start ()
     {
-		
+        gameObject.GetComponent<CircleCollider2D>().radius = range;
 	}
 	
 	void FixedUpdate ()
@@ -48,7 +48,14 @@ public class TurretAI : MonoBehaviour {
             }
         }
         target = selected.transform;
-        Vector3 rotDir = target.position - transform.position;
+
+        float timeToHit = Vector3.Distance(target.transform.position, transform.position) / projectile.GetComponent<Shot>().speed;
+
+        Vector3 targetVelocity = selected.GetComponent<Rigidbody2D>().velocity;
+
+        Vector3 aimPoint = target.position + (targetVelocity * timeToHit);
+
+        Vector3 rotDir = (aimPoint- transform.position);
         float angle = Mathf.Atan2(rotDir.y, rotDir.x) * Mathf.Rad2Deg;
         this.transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
     }
