@@ -75,11 +75,15 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Scripts\BasicShot.cs" />
     <Compile Include="Assets\Scripts\GridManager.cs" />
     <Compile Include="Assets\Scripts\Health.cs" />
-    <Compile Include="Assets\Scripts\KBMover.cs" />
+    <Compile Include="Assets\Scripts\Movers\DumbMover.cs" />
+    <Compile Include="Assets\Scripts\Movers\KBMover.cs" />
+    <Compile Include="Assets\Scripts\Movers\Mover.cs" />
     <Compile Include="Assets\Scripts\PlayerController.cs" />
-    <Compile Include="Assets\Scripts\ShotMovement.cs" />
+    <Compile Include="Assets\Scripts\Shot.cs" />
+    <Compile Include="Assets\Scripts\Target.cs" />
     <Compile Include="Assets\Scripts\TurretAI.cs" />
     <Compile Include="Assets\Scripts\WalkerAI.cs" />
   </ItemGroup>
