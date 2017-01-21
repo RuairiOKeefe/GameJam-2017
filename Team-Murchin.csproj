@@ -79,12 +79,23 @@
     <Reference Include="UnityEditor">
       <HintPath>Library\UnityAssemblies\UnityEditor.dll</HintPath>
     </Reference>
+    <Reference Include="UnityEditor.iOS.Extensions.Xcode">
+      <HintPath>Library\UnityAssemblies\UnityEditor.iOS.Extensions.Xcode.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEditor.iOS.Extensions.Common">
+      <HintPath>Library\UnityAssemblies\UnityEditor.iOS.Extensions.Common.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Scripts\BasicShot.cs" />
+    <Compile Include="Assets\Scripts\EnemyScripts\Circle.cs" />
+    <Compile Include="Assets\Scripts\EnemyScripts\Movement.cs" />
     <Compile Include="Assets\Scripts\GridManager.cs" />
     <Compile Include="Assets\Scripts\Health.cs" />
-    <Compile Include="Assets\Scripts\LevelManager.cs" />
+    <Compile Include="Assets\Scripts\MapScripts\LevelManager.cs" />
+    <Compile Include="Assets\Scripts\MapScripts\PfNode.cs" />
+    <Compile Include="Assets\Scripts\MapScripts\S_Pathfinder.cs" />
+    <Compile Include="Assets\Scripts\MapScripts\Tile.cs" />
     <Compile Include="Assets\Scripts\Movers\DumbMover.cs" />
     <Compile Include="Assets\Scripts\Movers\KBMover.cs" />
     <Compile Include="Assets\Scripts\Movers\Mover.cs" />
