@@ -38,7 +38,8 @@ public class LevelManager : MonoBehaviour
         // Initialized the world start set to the camera position
 
         // TODO - need to initialize based on a fixed camera size for level 1 which doubles the X and Y ranges (zooms out) for levels 2+
-        Vector3 worldStart = Camera.main.ScreenToWorldPoint(new Vector3(0, Screen.height));
+        print(mapYSize);
+        Vector3 worldStart = Camera.main.ScreenToWorldPoint(new Vector3(0, mapYSize));
 
         for(int y = 0; y < mapYSize; y++)
         {
@@ -46,12 +47,12 @@ public class LevelManager : MonoBehaviour
 
             for (int x = 0; x < mapXSize; x++)
             {
-                PlaceTile(newTiles[x].ToString(), x, y, worldStart);
+                PlaceTile(newTiles[x].ToString(), x, y, mapYSize-1);
             }
         }
     }
 
-    private void PlaceTile(string tileType, int x, int y, Vector3 worldStart)
+    private void PlaceTile(string tileType, int x, int y, float yStart)
     {
         // Places a tile based on the prefab index of the Level Manager. Index is parsed as an Integer from the text file [0 for beach, 1 for trench, etc]
 
@@ -60,8 +61,7 @@ public class LevelManager : MonoBehaviour
 
         // Instantiate new tile object
         //GameObject newTile = Instantiate(tilePrefabs[tileIndex]);
-
-        Instantiate(tilePrefabs[tileIndex], new Vector3(x + 0.5f, y + 0.5f, 1.0f), Quaternion.identity);
+        Instantiate(tilePrefabs[tileIndex], new Vector3(x + 0.5f, (yStart - y) + 0.5f, 1.0f), Quaternion.identity);
 
         // Move current tile object by the proper 2D array space
         //newTile.transform.position = new Vector3(worldStart.x + (TileSize * x), worldStart.y - (TileSize * y), 0);
@@ -72,7 +72,7 @@ public class LevelManager : MonoBehaviour
         // Currently loading level-1 as a default. Will need to be changed to allow for multiple loading of files given level progression.
 
         // Bind the txt file as data as a text asset
-        TextAsset bindData = Resources.Load("Level-2") as TextAsset;
+        TextAsset bindData = Resources.Load("Level-1") as TextAsset;
 
         print(bindData);
 
