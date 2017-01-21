@@ -9,6 +9,7 @@ public class GridManager : MonoBehaviour {
 
     public GameObject sand;
     public GameObject trench;
+    public GameObject rock;
 
     void Start()
     {
@@ -24,7 +25,10 @@ public class GridManager : MonoBehaviour {
                 if(y == 2)
                     Instantiate(trench, new Vector3(x + 0.5f, y + 0.5f, 1.0f), Quaternion.identity);
                 else
-                    Instantiate(sand, new Vector3(x + 0.5f, y + 0.5f, 1.0f), Quaternion.identity);
+                    if (y == 4)
+                        Instantiate(rock, new Vector3(x + 0.5f, y + 0.5f, 1.0f), Quaternion.identity);
+                    else
+                        Instantiate(sand, new Vector3(x + 0.5f, y + 0.5f, 1.0f), Quaternion.identity);
             }
         }
     }
