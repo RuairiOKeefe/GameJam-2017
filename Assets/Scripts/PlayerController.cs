@@ -43,7 +43,7 @@ public class PlayerController : MonoBehaviour {
         gameObject.transform.position = mousePos;//set position of cursor object to rounded mouse position.
 
         RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.zero, 0f); //issue with going off grid, can probably fix by if Switched to if(raycast), Also problem with turret range collider invalidating placement may rework turret range
-        if (hit.transform.tag == "Placeable")
+        if (hit && hit.transform.tag == "Placeable")
         {
             GetComponent<SpriteRenderer>().sprite = CorrectPlacement;
             canPlace = true;

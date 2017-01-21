@@ -2,13 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ShotMovement : MonoBehaviour {
+public abstract class Shot : MonoBehaviour {
 
     public float speed;
     public float damage;
 
 	// Use this for initialization
-	void Start ()
+	protected virtual void Start ()
     {
         GetComponent<Rigidbody2D>().velocity = transform.right * speed;
 	}
