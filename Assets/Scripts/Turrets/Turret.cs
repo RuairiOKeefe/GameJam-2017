@@ -29,6 +29,7 @@ public abstract class Turret : MonoBehaviour {
         }
     }
 
+    // TODO: UI element for setting turret targetting behaviour?
     protected virtual void AquireTarget()
     {
         Collider2D selected = null;
@@ -55,7 +56,6 @@ public abstract class Turret : MonoBehaviour {
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        print("Arse");
         if (!HostileList.Contains(other) && other.tag == "Enemy")
         {
             HostileList.Add(other);
@@ -64,7 +64,6 @@ public abstract class Turret : MonoBehaviour {
 
     void OnTriggerExit2D(Collider2D other)
     {
-        print("De-Arse");
         if (HostileList.Contains(other) && other.tag == "Enemy")
         {
             HostileList.Remove(other);
