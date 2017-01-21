@@ -55,7 +55,7 @@ public class TurretAI : MonoBehaviour {
 
     void Fire()
     {
-        Instantiate(projectile, shotOrigin.transform.position, gameObject.transform.rotation);
+        Instantiate(projectile, shotOrigin.transform.position, this.transform.rotation);
         nextFire = Time.time + fireRate;
     }
     
