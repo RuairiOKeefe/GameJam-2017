@@ -6,15 +6,22 @@ public abstract class Shot : MonoBehaviour {
 
     public float speed;
     public float damage;
+    public int penetrationFactor;
 
-	// Use this for initialization
 	protected virtual void Start ()
     {
         GetComponent<Rigidbody2D>().velocity = transform.right * speed;
 	}
-	
-	// Update is called once per frame
-	void FixedUpdate () {
-		
-	}
+
+    protected virtual void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.tag == "Enemy")
+        {
+            other.GetComponent<Health>().TakeDamage(damage);
+            //play sound
+            --penetrationFactor;
+            if(penetrationFactor <= 0)
+                Destroy(this.gameObject);
+        }
+    }
 }

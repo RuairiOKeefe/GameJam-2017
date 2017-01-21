@@ -10,7 +10,7 @@ public class TurretAI : MonoBehaviour {
     public Transform shotOrigin;
     
     private float nextFire;
-    private List<Collider2D> HostileList = new List<Collider2D>();
+    private List<Collider2D> hostileList = new List<Collider2D>();
     private Transform target;
 
 	void Start ()
@@ -20,7 +20,7 @@ public class TurretAI : MonoBehaviour {
 	
 	void FixedUpdate ()
     {
-        if (HostileList.Count != 0)
+        if (hostileList.Count != 0)
         {
             AquireTarget();
 
@@ -39,8 +39,12 @@ public class TurretAI : MonoBehaviour {
     {
         Collider2D selected = null;
         float minDist = float.PositiveInfinity;
-        foreach (Collider2D enemy in HostileList)
+        foreach (Collider2D enemy in hostileList)
         {
+            if (enemy == null)
+            {
+                hostileList.Remove(enemy);
+            }
             if (enemy.GetComponentInParent<WalkerAI>().distToEnd < minDist)
             {
                 selected = enemy;
@@ -69,18 +73,18 @@ public class TurretAI : MonoBehaviour {
     void OnTriggerEnter2D(Collider2D other)
     {
         print("Arse");
-        if (!HostileList.Contains(other) && other.tag == "Enemy")
+        if (!hostileList.Contains(other) && other.tag == "Enemy")
         {
-            HostileList.Add(other);
+            hostileList.Add(other);
         }
     }
 
     void OnTriggerExit2D(Collider2D other)
     {
         print("De-Arse");
-        if (HostileList.Contains(other) && other.tag == "Enemy")
+        if (hostileList.Contains(other) && other.tag == "Enemy")
         {
-            HostileList.Remove(other);
+            hostileList.Remove(other);
         }
     }
 }

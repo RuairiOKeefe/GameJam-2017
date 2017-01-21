@@ -4,13 +4,12 @@ using UnityEngine;
 
 public class BasicShot : Shot {
 
-	// Use this for initialization
 	protected override void Start () {
         base.Start();
 	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+
+    protected override void OnTriggerEnter2D(Collider2D other)
+    {
+        base.OnTriggerEnter2D(other);
+    }
 }
