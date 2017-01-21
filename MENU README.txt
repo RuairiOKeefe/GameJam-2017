@@ -1,0 +1,1 @@
+First drag the state manager into the scene. Then drag the "Full Canvas" prefab into the scene. Then in the state manager's script, give it the state objects in the order that are in the canvas.
