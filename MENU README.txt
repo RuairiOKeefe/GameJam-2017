@@ -1,1 +1,1 @@
-First drag the state manager into the scene. Then drag the "Full Canvas" prefab into the scene. Then in the state manager's script, give it the state objects in the order that are in the canvas.
+Drag the MenuSystem prefab onto the scene and centre to it to the world origin. Then if you want to test something accurately when you drag the prefab into the world, you make it a child of the state it belongs to.
