@@ -15,6 +15,5 @@ public class WalkerAI : Health{
     void FixedUpdate ()
     {
 		distToEnd = (transform.position - end.position).sqrMagnitude;
-        print(distToEnd);
 	}
 }

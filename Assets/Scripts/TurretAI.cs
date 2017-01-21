@@ -62,22 +62,17 @@ public class TurretAI : MonoBehaviour {
     void OnTriggerEnter2D(Collider2D other)
     {
         print("Arse");
-        //if the object is not already in the list
         if (!HostileList.Contains(other) && other.tag == "Enemy")
         {
-            //add the object to the list
             HostileList.Add(other);
         }
     }
 
-    //called when something exits the trigger
     void OnTriggerExit2D(Collider2D other)
     {
         print("De-Arse");
-        //if the object is in the list
         if (HostileList.Contains(other) && other.tag == "Enemy")
         {
-            //remove it from the list
             HostileList.Remove(other);
         }
     }
