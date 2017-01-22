@@ -9,10 +9,12 @@ public abstract class Turret : MonoBehaviour {
     protected List<Collider2D> HostileList = new List<Collider2D>();
     protected GameObject target;
     protected float nextFire;
+    protected Animator animator;
 
     void Start()
     {
         gameObject.GetComponent<CircleCollider2D>().radius = range;
+        animator = GetComponent<Animator>();
     }
 
     void FixedUpdate()
@@ -24,6 +26,7 @@ public abstract class Turret : MonoBehaviour {
             //Make it follow a target
             if (Time.time >= nextFire)
             {
+                animator.SetTrigger("Fire");
                 Fire();
             }
         }

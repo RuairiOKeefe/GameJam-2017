@@ -1,11 +1,12 @@
 fileFormatVersion: 2
 guid: 7138d5e0b090d5141b5b12d3916f3da3
-timeCreated: 1485026024
+timeCreated: 1485094379
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
     21300000: SGTop_0
     21300002: SGTop_1
+    21300004: SGTop_2
   serializedVersion: 4
   mipmaps:
     mipMapMode: 0
@@ -89,6 +90,19 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 32
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: SGTop_2
+      rect:
+        serializedVersion: 2
+        x: 64
         y: 0
         width: 32
         height: 32
