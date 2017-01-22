@@ -68,6 +68,7 @@ public class PlayerController : MonoBehaviour {
     public void SetSunGun()
     {
         // sets the turret type for placement by the index in the prefab array
+        print("Setting SG");
         SetTurretType(0);
 
         // if the placement mode is not turned on, 
@@ -81,6 +82,7 @@ public class PlayerController : MonoBehaviour {
 
     public void SetSlickShooter()
     {
+        print("Setting SS");
         SetTurretType(1);
 
         if (!placementMode)
@@ -92,6 +94,7 @@ public class PlayerController : MonoBehaviour {
 
     public void SetWaterWhomper()
     {
+        print("Setting WW");
         SetTurretType(2);
 
         if (!placementMode)
@@ -103,6 +106,7 @@ public class PlayerController : MonoBehaviour {
 
     public void SetKebabBalista()
     {
+        print("Setting KB");
         SetTurretType(3);
 
         if (!placementMode)
@@ -114,6 +118,7 @@ public class PlayerController : MonoBehaviour {
 
     public void SetPushOffParasol()
     {
+        print("Setting POP");
         SetTurretType(4);
 
         if (!placementMode)
@@ -125,6 +130,7 @@ public class PlayerController : MonoBehaviour {
 
     public void SetBigBloodyCannon()
     {
+        print("Setting BFG");
         SetTurretType(5);
 
         if (!placementMode)
