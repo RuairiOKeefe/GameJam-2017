@@ -1,12 +1,23 @@
 ﻿using UnityEngine;
 using System;
 using System.Collections;
+using System.Collections.Generic;
 
 public class LevelManager : MonoBehaviour
 {
 
     [SerializeField]
     private GameObject[] tilePrefabs;
+
+    // Stores all map tiles
+    public GameObject[,] tiles;
+
+    public GameObject mover;
+    public Transform start;
+
+    // Stores map dimesnions
+    public int mapSizeX;
+    public int mapSizeY;
 
     public float TileSize
     {
@@ -17,7 +28,18 @@ public class LevelManager : MonoBehaviour
 	// Use this for initialization
 	void Start ()
     {
+        Instantiate(mover, start.transform).GetComponent<Movement>().LevelMap = this.gameObject;
         CreateLevel();
+        
+        Queue<GameObject> obs = new Queue<GameObject>();
+
+        obs = S_Pathfinder.PathFind(tiles, new Vector2(3, 0), new Vector2(2, 9));
+
+        while(obs.Count > 0)
+        {
+            GameObject ob = obs.Dequeue();
+            ob.GetComponentInChildren<SpriteRenderer>().color = Color.blue;
+        }
 	}
 	
 	// Update is called once per frame
@@ -34,6 +56,11 @@ public class LevelManager : MonoBehaviour
         // Sets the map X and Y sizes
         int mapXSize = mapData[0].ToCharArray().Length;
         int mapYSize = mapData.Length;
+
+        mapSizeX = mapXSize;
+        mapSizeY = mapYSize;
+
+        tiles = new GameObject[mapXSize, mapYSize];
 
         // Initialized the world start set to the camera position
 
@@ -61,7 +88,17 @@ public class LevelManager : MonoBehaviour
 
         // Instantiate new tile object
         //GameObject newTile = Instantiate(tilePrefabs[tileIndex]);
-        Instantiate(tilePrefabs[tileIndex], new Vector3(x + 0.5f, (yStart - y) + 0.5f, 1.0f), Quaternion.identity);
+        tiles[x, y] = Instantiate(tilePrefabs[tileIndex], new Vector3(x + 0.5f, (yStart - y) + 0.5f, 1.0f), Quaternion.identity);
+        tiles[x, y].transform.parent = transform;
+
+        Tile tileScript = tiles[x, y].GetComponent<Tile>();
+        tileScript.X = x;
+        tileScript.Y = y;
+
+        if (tileIndex == 1)
+            tileScript.IsWalkable = true;
+        else
+            tileScript.IsWalkable = false;
 
         // Move current tile object by the proper 2D array space
         //newTile.transform.position = new Vector3(worldStart.x + (TileSize * x), worldStart.y - (TileSize * y), 0);
