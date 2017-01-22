@@ -20,8 +20,13 @@ public abstract class Shot : MonoBehaviour {
             other.GetComponent<Health>().TakeDamage(damage);
             //play sound
             --penetrationFactor;
-            if(penetrationFactor <= 0)
+            if (penetrationFactor <= 0)
                 Destroy(this.gameObject);
         }
+        else
+            if (other.tag == "Barrier")
+            {
+                Destroy(this.gameObject);
+            }
     }
 }
