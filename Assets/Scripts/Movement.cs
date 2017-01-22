@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Movement : MonoBehaviour
+public class Movement : Health
 {
     // Used to set circle position
     public Vector3 Position;
@@ -34,6 +34,7 @@ public class Movement : MonoBehaviour
 	// Use this for initialization
 	void Start ()
     {
+        currentHealth = maxHealth;
         Rb = GetComponent<Rigidbody2D>();
 
         
@@ -73,7 +74,7 @@ public class Movement : MonoBehaviour
 
     public void GetPath()
     {
-        PathQueue = S_Pathfinder.PathFind(LevelManScript.tiles, new Vector2(XCoord, YCoord), new Vector2(2, 9));
+        PathQueue = S_Pathfinder.PathFind(LevelManScript.tiles, new Vector2(XCoord, YCoord), new Vector2(5, 9));
     }
 
     public void PathMovement()

@@ -40,10 +40,10 @@ public abstract class Turret : MonoBehaviour {
             {
                 HostileList.Remove(enemy);
             }
-            if (enemy.GetComponentInParent<WalkerAI>().distToEnd < minDist)
+            if (enemy.GetComponentInParent<Health>().distToEnd < minDist)
             {
                 selected = enemy;
-                minDist = enemy.GetComponentInParent<WalkerAI>().distToEnd;
+                minDist = enemy.GetComponentInParent<Health>().distToEnd;
             }
         }
         target = selected.gameObject;

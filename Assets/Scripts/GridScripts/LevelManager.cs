@@ -28,7 +28,9 @@ public class LevelManager : MonoBehaviour
 	// Use this for initialization
 	void Start ()
     {
+        mover.GetComponent<Health>().maxHealth = 100;
         Instantiate(mover, start.transform).GetComponent<Movement>().LevelMap = this.gameObject;
+        
         CreateLevel();
         
         Queue<GameObject> obs = new Queue<GameObject>();
