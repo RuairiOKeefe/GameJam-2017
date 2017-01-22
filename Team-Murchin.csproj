@@ -84,6 +84,8 @@
     <Compile Include="Assets\Scripts\AoeShot.cs" />
     <Compile Include="Assets\Scripts\BasicShot.cs" />
     <Compile Include="Assets\Scripts\Circle.cs" />
+    <Compile Include="Assets\Scripts\ClickTest.cs" />
+    <Compile Include="Assets\Scripts\GameController.cs" />
     <Compile Include="Assets\Scripts\GridManager.cs" />
     <Compile Include="Assets\Scripts\GridScripts\LevelManager.cs" />
     <Compile Include="Assets\Scripts\GridScripts\PfNode.cs" />

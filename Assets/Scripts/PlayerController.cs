@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour {
 
+    [SerializeField]
+    private GameObject[] turretPrefabs;
+
     public GameObject turret;//Should change prefab when a button is clicked, for now this will just create the temp turret
     public Sprite CorrectPlacement;
     public Sprite WrongPlacement;
@@ -60,5 +63,40 @@ public class PlayerController : MonoBehaviour {
             placementMode = !placementMode;
             GetComponent<SpriteRenderer>().enabled = !GetComponent<SpriteRenderer>().enabled;
         }
+    }
+
+    public void SetSunGun()
+    {
+        SetTurretType(0);
+    }
+
+    public void SetSlickShooter()
+    {
+        SetTurretType(1);
+    }
+
+    public void SetWaterWhomper()
+    {
+        SetTurretType(2);
+    }
+
+    public void SetKebabBalista()
+    {
+        SetTurretType(3);
+    }
+
+    public void SetPushOffParasol()
+    {
+        SetTurretType(4);
+    }
+
+    public void SetBigBloodyCannon()
+    {
+        SetTurretType(5);
+    }
+
+    private void SetTurretType(int turretType)
+    {
+        turret = turretPrefabs[turretType];
     }
 }

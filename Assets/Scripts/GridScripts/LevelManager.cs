@@ -9,6 +9,9 @@ public class LevelManager : MonoBehaviour
     [SerializeField]
     private GameObject[] tilePrefabs;
 
+    [SerializeField]
+    public String level;
+
     // Stores all map tiles
     public GameObject[,] tiles;
 
@@ -28,6 +31,7 @@ public class LevelManager : MonoBehaviour
 	// Use this for initialization
 	void Start ()
     {
+        print(level);
         mover.GetComponent<Health>().maxHealth = 100;
         Instantiate(mover, start.transform).GetComponent<Movement>().LevelMap = this.gameObject;
         
@@ -111,7 +115,7 @@ public class LevelManager : MonoBehaviour
         // Currently loading level-1 as a default. Will need to be changed to allow for multiple loading of files given level progression.
 
         // Bind the txt file as data as a text asset
-        TextAsset bindData = Resources.Load("Level-1") as TextAsset;
+        TextAsset bindData = Resources.Load(level) as TextAsset;
 
         print(bindData);
 
