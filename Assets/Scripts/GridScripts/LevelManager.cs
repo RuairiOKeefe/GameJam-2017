@@ -15,6 +15,9 @@ public class LevelManager : MonoBehaviour
     // Stores all map tiles
     public GameObject[,] tiles;
 
+    // barrier prefab used for invisible projectile wall
+    public GameObject barrier;
+
     public GameObject mover;
     public Transform start;
 
@@ -81,6 +84,23 @@ public class LevelManager : MonoBehaviour
             for (int x = 0; x < mapXSize; x++)
             {
                 PlaceTile(newTiles[x].ToString(), x, y, mapYSize-1);
+            }
+        }
+
+
+        // hacky level wall loops
+        for(int x=-1; x < mapSizeX + 1; x++)
+        {
+            for (int y = -1; y <= mapSizeY + 1; y += mapSizeY+1)
+            {
+                Instantiate(barrier, new Vector3(x + .5f, y + .5f, 1.0f), Quaternion.identity);
+            }
+        }
+        for(int y = 0; y < mapYSize; y++)
+        {
+            for(int x = -1; x < mapSizeX + 1; x += mapSizeX + 1)
+            {
+                Instantiate(barrier, new Vector3(x + .5f, (mapSizeY - 1) - y + .5f, 1.0f), Quaternion.identity);
             }
         }
     }
