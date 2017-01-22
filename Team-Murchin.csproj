@@ -81,6 +81,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Scripts\AoeShot.cs" />
     <Compile Include="Assets\Scripts\BasicShot.cs" />
     <Compile Include="Assets\Scripts\Circle.cs" />
     <Compile Include="Assets\Scripts\GridManager.cs" />
@@ -97,6 +98,7 @@
     <Compile Include="Assets\Scripts\Shot.cs" />
     <Compile Include="Assets\Scripts\StateManager\StateManager.cs" />
     <Compile Include="Assets\Scripts\Target.cs" />
+    <Compile Include="Assets\Scripts\Turrets\AoeProjectileTurret.cs" />
     <Compile Include="Assets\Scripts\Turrets\AoeTurret.cs" />
     <Compile Include="Assets\Scripts\Turrets\ProjectileTurret.cs" />
     <Compile Include="Assets\Scripts\Turrets\Turret.cs" />
