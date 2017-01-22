@@ -12,11 +12,6 @@ public class AoeTurret : Turret {
         foreach (Collider2D enemy in HostileList)
         {
             enemy.gameObject.GetComponent<Health>().TakeDamage(Damage);
-
-            Vector3 knockBackVec = (enemy.transform.position - transform.position).normalized * KnockbackStrength;
-
-            // TODO: decide how we will actually be handling this
-            enemy.gameObject.GetComponent<Mover>().Move(knockBackVec.x, knockBackVec.y);
         }
 
         base.Fire();
