@@ -10,6 +10,7 @@ public class PlayerController : MonoBehaviour {
     public GameObject turret;//Should change prefab when a button is clicked, for now this will just create the temp turret
     public Sprite CorrectPlacement;
     public Sprite WrongPlacement;
+    public List<GameObject> Turrets;
 
     private bool placementMode;
     private bool canPlace = false;
@@ -35,6 +36,19 @@ public class PlayerController : MonoBehaviour {
             print(placementMode);
             GetComponent<SpriteRenderer>().enabled = !GetComponent<SpriteRenderer>().enabled;
         }
+
+        if (Input.GetKeyDown("1"))
+            turret = Turrets[0].gameObject;
+        if (Input.GetKeyDown("2"))
+            turret = Turrets[1].gameObject;
+        if (Input.GetKeyDown("3"))
+            turret = Turrets[2].gameObject;
+        if (Input.GetKeyDown("4"))
+            turret = Turrets[3].gameObject;
+        if (Input.GetKeyDown("5"))
+            turret = Turrets[4].gameObject;
+        if (Input.GetKeyDown("6"))
+            turret = Turrets[5].gameObject;
     }
 
     void Placement()

@@ -79,4 +79,8 @@ public class StateManager : MonoBehaviour
             }
         }
     }
+    public void Quit()
+    {
+        Application.Quit();
+    }
 }

@@ -37,9 +37,6 @@ public class Movement : Health
         currentHealth = maxHealth;
         Rb = GetComponent<Rigidbody2D>();
 
-        
-        transform.position = new Vector3(1.5f, 9.5f, 0);
-
         LevelManScript = LevelMap.GetComponent<LevelManager>();
         
         Position = transform.position;
@@ -74,7 +71,7 @@ public class Movement : Health
 
     public void GetPath()
     {
-        PathQueue = S_Pathfinder.PathFind(LevelManScript.tiles, new Vector2(XCoord, YCoord), new Vector2(5, 9));
+        PathQueue = S_Pathfinder.PathFind(LevelManScript.tiles, new Vector2(XCoord, YCoord), LevelManScript.EnemyObjectiveCoords);
     }
 
     public void PathMovement()
