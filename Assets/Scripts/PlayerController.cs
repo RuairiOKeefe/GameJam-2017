@@ -7,9 +7,12 @@ public class PlayerController : MonoBehaviour {
     [SerializeField]
     private GameObject[] turretPrefabs;
 
+    public AudioClip[] audioClips;
+
     public GameObject turret;//Should change prefab when a button is clicked, for now this will just create the temp turret
     public Sprite CorrectPlacement;
     public Sprite WrongPlacement;
+    
 
     private bool placementMode;
     private bool canPlace = false;
@@ -62,6 +65,7 @@ public class PlayerController : MonoBehaviour {
             Instantiate(turret, mousePos, transform.rotation);
             placementMode = !placementMode;
             GetComponent<SpriteRenderer>().enabled = !GetComponent<SpriteRenderer>().enabled;
+            playSound(0);
         }
     }
 
@@ -144,4 +148,13 @@ public class PlayerController : MonoBehaviour {
     {
         turret = turretPrefabs[turretType];
     }
+
+    public void playSound(int clip)
+    {
+        AudioSource audio = GetComponent<AudioSource>();
+        audio.clip = audioClips[clip];
+        audio.Play();
+    }
 }
+
+
